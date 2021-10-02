@@ -17,8 +17,9 @@ public class CurrencyQuoteDAOImplementation implements CurrencyQuoteDAO {
     @Override
     public CurrencyQuoteDTO getLastQuoteCurrency() {
 
-        String query = "select * from currency_quote desc";
-
-        return null;
+        String query = "select * from currency_quote order by create_date desc fetch first 1 rows only;";
+        //queryForObject
+        return jdbcTemplate.queryForObject(query, (rs, rowNum) -> new CurrencyQuoteDTO(rs.getInt("id"), rs.getString("high")));
+        // TODO: 02/10/2021  Implementar o resto das informaçoes no queryForObject para ficar show
     }
 }

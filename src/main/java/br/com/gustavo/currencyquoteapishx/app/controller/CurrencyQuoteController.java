@@ -15,7 +15,7 @@ public class CurrencyQuoteController {
 
     private final CurrencyQuoteService currencyQuoteService;
 
-    @GetMapping
+    @GetMapping("/")
     public CurrencyQuoteDTO getLastCurrencyQuote(){
 
         return currencyQuoteService.getLastQuote();

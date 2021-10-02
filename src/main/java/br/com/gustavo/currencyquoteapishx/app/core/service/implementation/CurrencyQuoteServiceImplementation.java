@@ -18,6 +18,6 @@ public class CurrencyQuoteServiceImplementation implements CurrencyQuoteService 
 
         CurrencyQuoteDTO currencyQuoteDTO = currencyQuoteDAO.getLastQuoteCurrency();
 
-        return null;
+        return currencyQuoteDTO;
     }
 }
