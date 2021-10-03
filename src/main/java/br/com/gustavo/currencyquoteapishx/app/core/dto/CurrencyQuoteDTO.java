@@ -1,22 +1,34 @@
 package br.com.gustavo.currencyquoteapishx.app.core.dto;
 
 import lombok.*;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "currency_quote")
 @Data
-@Builder
 @AllArgsConstructor
+@Builder
 @Getter
-@Setter
 public class CurrencyQuoteDTO {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
+    public Integer id;
+
+    @Column(name="code")
     public String code;
+    @Column(name="codein")
     public String codein;
+    @Column(name="name")
     public String name;
+    @Column(name="high")
     public String high;
+    @Column(name="low")
     public String low;
-    public String varBid;
-    public String pctChange;
-    public String bid;
-    public String ask;
-    public String timestamp;
-    public String create_date;
+    @Column(name="create_date")
+    public Date create_date;
 }
