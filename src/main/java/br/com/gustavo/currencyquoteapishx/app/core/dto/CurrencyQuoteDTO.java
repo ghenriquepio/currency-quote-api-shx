@@ -1,20 +1,21 @@
 package br.com.gustavo.currencyquoteapishx.app.core.dto;
 
 import lombok.*;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "currency_quote")
+@Data
+@AllArgsConstructor
+@Builder
+@Getter
 public class CurrencyQuoteDTO {
 
-    public CurrencyQuoteDTO(Integer id, String high) {
-        this.id = id;
-        this.high = high;
-    }
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     public Integer id;
 
@@ -29,5 +30,5 @@ public class CurrencyQuoteDTO {
     @Column(name="low")
     public String low;
     @Column(name="create_date")
-    public String create_date;
+    public Date create_date;
 }

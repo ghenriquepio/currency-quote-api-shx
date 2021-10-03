@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class CurrencyQuoteServiceImplementation implements CurrencyQuoteService {
@@ -15,9 +17,12 @@ public class CurrencyQuoteServiceImplementation implements CurrencyQuoteService 
 
     @Override
     public CurrencyQuoteDTO getLastQuote() {
-
-        CurrencyQuoteDTO currencyQuoteDTO = currencyQuoteDAO.getLastQuoteCurrency();
-
-        return currencyQuoteDTO;
+        return currencyQuoteDAO.getLastQuoteCurrency();
     }
+
+    @Override
+    public List<CurrencyQuoteDTO> getQuoteCurrencyByTimeCourse(String initialDate, String finalDate) {
+        return currencyQuoteDAO.getQuoteCurrencyByTimeCourse(initialDate, finalDate);
+    }
+
 }
