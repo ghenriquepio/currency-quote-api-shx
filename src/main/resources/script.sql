@@ -19,3 +19,4 @@ CREATE TABLE public.currency_quote
 )
 
 -- O id usa uma sequence para ser gerada!
+-- Se atentar a senha/usuário do banco de dados, para alterar no application.properties
